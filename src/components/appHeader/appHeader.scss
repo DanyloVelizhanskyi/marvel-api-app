@@ -29,3 +29,14 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .app {
+        &__title {
+            font-size: 20px;
+        }
+        &__menu ul {
+            font-size: 20px;
+        }
+    }
+}

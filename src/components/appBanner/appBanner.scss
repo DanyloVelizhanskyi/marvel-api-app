@@ -1,6 +1,5 @@
 @import '../../style/variables.scss';
 
-
 .app {
     &__banner {
         width: 100%;
@@ -16,6 +15,38 @@
             color: #FFFFFF;
             padding-left: 83px;
             padding-top: 18px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .app {
+        &__banner {
+            padding: 0 5px 0 5px;
+            &-text {
+                font-size: 23px;
+                padding-left: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .app {
+        &__banner {
+            &-text {
+                font-size: 19px;
+                line-height: 21px;
+                padding-left: 30px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .app {
+        &__banner {
+            display: none;
         }
     }
 }

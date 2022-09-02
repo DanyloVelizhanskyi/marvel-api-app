@@ -1,6 +1,7 @@
 @import '../../style/variables.scss';
 
 .randomchar {
+    border-radius: 30px;
     display: grid;
     grid-template-columns: repeat(2, 50%);
     align-items: center;
@@ -12,6 +13,7 @@
         column-gap: 30px;
     }
     &__img {
+        border-radius: 15px;
         width: 180px;
         height: 180px;
         object-fit: cover;
@@ -38,6 +40,7 @@
         }
     }
     &__static {
+        border-radius: 30px;
         padding: 40px 35px;
         background-color: $dark;
         position: relative;
@@ -59,5 +62,68 @@
         position: absolute;
         bottom: 14px;
         right: -37px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .randomchar {
+        grid-template-columns: 1fr;
+        &__static {
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .randomchar {
+        &__block {
+            padding: 15px 8px;
+        }
+        &__name {
+            font-size: 20px;
+        }
+        &__static {
+            padding: 15px 20px;
+        }
+        &__title {
+            font-size: 20px;
+            line-height: 28px;
+        }
+        &__title:nth-child(2) {
+            margin-top: 20px;
+        }
+        &__decoration {
+            transform: scale(0.9);
+            bottom: 0px;
+            right: -50px;
+        }
+        &__btns {
+            display: flex;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .randomchar {
+        &__block {
+            grid-template-columns: 1fr;
+            place-items: center;
+        }
+        &__img {
+            width: 200px;
+            height: 200px;
+        }
+        &__btns {
+            justify-content: center;
+        }
+        &__title {
+            font-size: 19px;
+            line-height: 24px;
+        }
+        &__decoration {
+            transform: scale(0.6);
+            bottom: -32px;
+            right: -70px;
+        }
     }
 }

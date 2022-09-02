@@ -34,3 +34,15 @@
         }
     }
 }
+
+@media (max-width: 1199px) { 
+    .comics__grid {
+        column-gap: 55px;
+    }
+}
+
+@media (max-width: 992px) { 
+    .comics__grid {
+        justify-content: space-evenly;
+    }
+}

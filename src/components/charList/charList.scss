@@ -22,11 +22,13 @@
         padding: 15px;
         cursor: pointer;
         transition: 0.3s transform;
+        border-radius: 20px;
         img {
             width: 200px;
             height: 200px;
             object-fit: cover;
             transform: translate(-15px, -15px);
+            border-radius: 20px 20px 0 0;
         }
         &_selected {
             box-shadow: 0 5px 20px $main-color;
@@ -39,5 +41,60 @@
         line-height: 29px;
         text-transform: uppercase;
         color: #fff;
+    }
+}
+
+@media (max-width: 1200px) {
+    .char {
+        &__content {
+            column-gap: 0px;
+        }
+        &__grid {
+            column-gap: 10px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .char {
+        &__content {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 10px;
+        }
+        &__grid {
+            grid-template-columns: 1fr;
+            column-gap: 10px;
+        }
+        &__name {
+            font-size: 20px;
+        }
+    }
+}
+
+// @media (max-width: 768px) {
+//     .char {
+//         &__content {
+//             grid-template-columns: 1fr 1fr;
+//             margin-top: 0;
+//         }
+//         &__item {
+//             margin-top: 15px;
+//         }
+//     }
+// }
+
+@media (max-width: 576px) {
+    .char {
+        &__content {
+            grid-template: auto auto / 1fr;
+            margin-top: 0;
+        }
+        &__list {
+            margin-top: 0px;
+            order: 2
+        }
+        &__grid {
+            place-items: center;
+        }
     }
 }
