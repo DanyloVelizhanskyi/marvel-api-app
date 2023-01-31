@@ -9,29 +9,38 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 import './charSearchForm.scss';
 
 const CharSearchForm = () => {
-    const [char, setChar] = useState(null);
-    const {getCharacterByName, clearError, process, setProcess} = useMarvelService();
+    const [chars, setChars] = useState(null);
+    const {getCharactersByName, clearError, process, setProcess} = useMarvelService();
 
-    const onCharLoaded = (char) => {
-        setChar(char);
+    const onCharLoaded = (chars) => {
+        setChars(chars);
     }
 
     const updateChar = (name) => {
         clearError();
 
-        getCharacterByName(name)
+        getCharactersByName(name)
             .then(onCharLoaded)
             .then(() => setProcess('confirmed'));
     }
 
     const errorMessage = process === 'error' ? <div className="char__search-critical-error"><ErrorMessage /></div> : null;
-    const results = !char ? null : char.length > 0 ?
-                    <div className="char__search-wrapper">
-                        <div className="char__search-success">There is! Visit {char[0].name} page?</div>
-                        <Link to={`/characters/${char[0].id}`} className="button button__secondary">
-                            <div className="inner">To page</div>
-                        </Link>
-                    </div> : 
+    const results = !chars ? null : chars.length > 0 ?
+                    <ul className="char__comics-list">
+                        {
+                            chars.map((item, i) => {
+                                if (i > 10) return;
+                                return (
+                                    <li key={i} className="char__comics-item">
+                                        <Link to={`/characters/${item.id}`} >
+                                            {item.name}
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul> 
+                    : 
                     <div className="char__search-error">
                         The character was not found. Check the name and try again
                     </div>;
