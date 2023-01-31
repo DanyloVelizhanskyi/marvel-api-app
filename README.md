@@ -11,7 +11,7 @@
 ![screenshot](src/resources/img/comics_page.png)
 
 ## Used technologies:
-React, React Hooks, Formik, React Router
+React, React Hooks, Formik, React Router, SCSS
 
 ## Setup
 To run this project, download and install it locally using npm:
